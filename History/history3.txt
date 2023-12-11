@@ -1,0 +1,105 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Wed Dec  6 22:59:34 2023
+[['SixL__', 21.682499999999997], ['Cal_and_Ben', 27.750816666666665]]
+Cal_and_Ben back in service at Wed Dec  6 23:04:18 2023
+Cal_and_Ben went offline at Wed Dec  6 23:15:55 2023
+Cal_and_Ben back in service at Wed Dec  6 23:16:06 2023
+SixL__ no longer being tracked at Wed Dec  6 23:21:21 2023
+Program resumed on Wed Dec  6 23:21:51 2023
+
+
+Kicked to lobby.
+Mission Aborted on Wed Dec  6 23:21:52 2023
+Program resumed on Wed Dec  6 23:22:09 2023
+Resumed work on Wed Dec  6 23:23:44 2023
+
+PraetorianWolf went offline at Wed Dec  6 23:28:24 2023
+PraetorianWolf no longer being tracked at Wed Dec  6 23:58:27 2023
+Program resumed on Wed Dec  6 23:58:58 2023
+
+Cal_and_Ben went offline at Thu Dec  7 00:01:14 2023
+Cal_and_Ben back in service at Thu Dec  7 00:27:17 2023
+Program resumed on Thu Dec  7 00:27:47 2023
+
+Cal_and_Ben went offline at Thu Dec  7 00:28:05 2023
+Cal_and_Ben no longer being tracked at Thu Dec  7 00:58:07 2023
+Program resumed on Thu Dec  7 00:58:37 2023
+
+ItzAzura went offline at Thu Dec  7 01:00:51 2023
+ItzAzura no longer being tracked at Thu Dec  7 01:30:52 2023
+Program resumed on Thu Dec  7 01:31:22 2023
+
+
+Kicked to lobby.
+Mission Aborted on Thu Dec  7 01:31:23 2023
+Program resumed on Thu Dec  7 01:31:40 2023
+Recess taken on Thu Dec  7 02:00:36 2023
+Resumed work on Thu Dec  7 02:02:50 2023
+
+Crunkle went offline at Thu Dec  7 02:17:33 2023
+Crunkle back in service at Thu Dec  7 02:19:07 2023
+Program resumed on Thu Dec  7 02:19:37 2023
+
+Crunkle went offline at Thu Dec  7 02:32:27 2023
+Crunkle no longer being tracked at Thu Dec  7 03:02:29 2023
+Program resumed on Thu Dec  7 03:02:59 2023
+
+Recess taken on Thu Dec  7 03:13:26 2023
+Resumed work on Thu Dec  7 03:15:36 2023
+
+Recess taken on Thu Dec  7 03:52:34 2023
+Resumed work on Thu Dec  7 03:54:43 2023
+
+Recess taken on Thu Dec  7 04:32:06 2023
+Resumed work on Thu Dec  7 04:34:16 2023
+
+Recess taken on Thu Dec  7 05:11:19 2023
+Resumed work on Thu Dec  7 05:13:29 2023
+
+Recess taken on Thu Dec  7 05:51:34 2023
+Resumed work on Thu Dec  7 05:53:43 2023
+
+Speed bomb detected on Thu Dec  7 06:11:49 2023 with 9 minutes remaining
+Speed bomb finished on Thu Dec  7 06:21:52 2023
+Recess taken on Thu Dec  7 06:26:21 2023
+Resumed work on Thu Dec  7 06:28:33 2023
+
+ at Thu Dec  7 06:55:23 2023
+Program resumed on Thu Dec  7 06:55:55 2023
+
+
+Kicked to lobby.
+Mission Aborted on Thu Dec  7 06:55:56 2023
+Program resumed on Thu Dec  7 06:56:13 2023
+Lysmod went offline at Thu Dec  7 06:58:51 2023
+Lysmod back in service at Thu Dec  7 06:58:59 2023
+Program resumed on Thu Dec  7 06:59:29 2023
+
+Lysmod went offline at Thu Dec  7 07:00:49 2023
+Lysmod back in service at Thu Dec  7 07:01:01 2023
+Program resumed on Thu Dec  7 07:01:31 2023
+
+Recess taken on Thu Dec  7 07:08:31 2023
+Resumed work on Thu Dec  7 07:10:43 2023
+
+ at Thu Dec  7 07:19:12 2023
+Program resumed on Thu Dec  7 07:19:44 2023
+
+
+Kicked to lobby.
+Mission Aborted on Thu Dec  7 07:19:44 2023
+Program resumed on Thu Dec  7 07:20:02 2023
+Magicmakerman detected in world 13 at Thu Dec  7 07:44:12 2023
+
+Mission Aborted on Thu Dec  7 07:44:13 2023
+
+C:\Users\chesh\professions>/

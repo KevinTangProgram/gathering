@@ -1,0 +1,184 @@
+Microsoft Windows [Version 10.0.19045.3693]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\chesh>pip install cryptography
+'pip' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\chesh>py -m pip install cryptography
+Collecting cryptography
+  Downloading cryptography-41.0.7-cp37-abi3-win_amd64.whl (2.7 MB)
+     ---------------------------------------- 2.7/2.7 MB 11.4 MB/s eta 0:00:00
+Collecting cffi>=1.12
+  Downloading cffi-1.16.0-cp310-cp310-win_amd64.whl (181 kB)
+     ---------------------------------------- 181.6/181.6 kB 5.5 MB/s eta 0:00:00
+Collecting pycparser
+  Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+     ---------------------------------------- 118.7/118.7 kB 7.2 MB/s eta 0:00:00
+Installing collected packages: pycparser, cffi, cryptography
+Successfully installed cffi-1.16.0 cryptography-41.0.7 pycparser-2.21
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install matplotlib
+Collecting matplotlib
+  Downloading matplotlib-3.8.2-cp310-cp310-win_amd64.whl (7.6 MB)
+     ---------------------------------------- 7.6/7.6 MB 23.3 MB/s eta 0:00:00
+Collecting kiwisolver>=1.3.1
+  Downloading kiwisolver-1.4.5-cp310-cp310-win_amd64.whl (56 kB)
+     ---------------------------------------- 56.1/56.1 kB ? eta 0:00:00
+Collecting pyparsing>=2.3.1
+  Downloading pyparsing-3.1.1-py3-none-any.whl (103 kB)
+     ---------------------------------------- 103.1/103.1 kB 5.8 MB/s eta 0:00:00
+Collecting numpy<2,>=1.21
+  Downloading numpy-1.26.2-cp310-cp310-win_amd64.whl (15.8 MB)
+     ---------------------------------------- 15.8/15.8 MB 23.4 MB/s eta 0:00:00
+Collecting cycler>=0.10
+  Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting packaging>=20.0
+  Downloading packaging-23.2-py3-none-any.whl (53 kB)
+     ---------------------------------------- 53.0/53.0 kB 2.7 MB/s eta 0:00:00
+Collecting python-dateutil>=2.7
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     ---------------------------------------- 247.7/247.7 kB 7.4 MB/s eta 0:00:00
+Collecting pillow>=8
+  Downloading Pillow-10.1.0-cp310-cp310-win_amd64.whl (2.6 MB)
+     ---------------------------------------- 2.6/2.6 MB 32.9 MB/s eta 0:00:00
+Collecting contourpy>=1.0.1
+  Downloading contourpy-1.2.0-cp310-cp310-win_amd64.whl (186 kB)
+     ---------------------------------------- 186.7/186.7 kB 11.0 MB/s eta 0:00:00
+Collecting fonttools>=4.22.0
+  Downloading fonttools-4.45.1-cp310-cp310-win_amd64.whl (2.2 MB)
+     ---------------------------------------- 2.2/2.2 MB 27.6 MB/s eta 0:00:00
+Collecting six>=1.5
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, matplotlib
+  WARNING: The script f2py.exe is installed in 'C:\Users\chesh\AppData\Local\Programs\Python\Python310\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts fonttools.exe, pyftmerge.exe, pyftsubset.exe and ttx.exe are installed in 'C:\Users\chesh\AppData\Local\Programs\Python\Python310\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed contourpy-1.2.0 cycler-0.12.1 fonttools-4.45.1 kiwisolver-1.4.5 matplotlib-3.8.2 numpy-1.26.2 packaging-23.2 pillow-10.1.0 pyparsing-3.1.1 python-dateutil-2.8.2 six-1.16.0
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install pydirectinput-rgx
+Collecting pydirectinput-rgx
+  Downloading pydirectinput_rgx-2.1.0-py3-none-any.whl (35 kB)
+Installing collected packages: pydirectinput-rgx
+Successfully installed pydirectinput-rgx-2.1.0
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install PyAutoGUI
+Collecting PyAutoGUI
+  Downloading PyAutoGUI-0.9.54.tar.gz (61 kB)
+     ---------------------------------------- 61.2/61.2 kB 1.1 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting pygetwindow>=0.0.5
+  Downloading PyGetWindow-0.0.9.tar.gz (9.7 kB)
+  Preparing metadata (setup.py) ... done
+Collecting pyscreeze>=0.1.21
+  Downloading PyScreeze-0.1.30.tar.gz (27 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting pytweening>=1.0.4
+  Downloading pytweening-1.0.7.tar.gz (168 kB)
+     ---------------------------------------- 168.2/168.2 kB 2.5 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting pymsgbox
+  Downloading PyMsgBox-1.0.9.tar.gz (18 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting mouseinfo
+  Downloading MouseInfo-0.1.3.tar.gz (10 kB)
+  Preparing metadata (setup.py) ... done
+Collecting pyrect
+  Downloading PyRect-0.2.0.tar.gz (17 kB)
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: Pillow>=9.2.0 in c:\users\chesh\appdata\local\programs\python\python310\lib\site-packages (from pyscreeze>=0.1.21->PyAutoGUI) (10.1.0)
+Collecting pyperclip
+  Downloading pyperclip-1.8.2.tar.gz (20 kB)
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: PyAutoGUI, pyscreeze, pymsgbox
+  Building wheel for PyAutoGUI (pyproject.toml) ... done
+  Created wheel for PyAutoGUI: filename=PyAutoGUI-0.9.54-py3-none-any.whl size=37597 sha256=736478e2fdad4267bf821735529c3abed15cb3b4f5f07de8188e48b882eceda0
+  Stored in directory: c:\users\chesh\appdata\local\pip\cache\wheels\27\ae\44\6ed17dd0eb2109b293dfd896e6b32176a662472e9ec276e911
+  Building wheel for pyscreeze (pyproject.toml) ... done
+  Created wheel for pyscreeze: filename=PyScreeze-0.1.30-py3-none-any.whl size=14400 sha256=755c5547f22e5b3691c1dfd7aa81b80f5e71b31467e2906e958f5d5cbfa11d29
+  Stored in directory: c:\users\chesh\appdata\local\pip\cache\wheels\99\bf\0d\71d629ddfd949f89dabc0e9357f41254c723bbfb043a60d93c
+  Building wheel for pymsgbox (pyproject.toml) ... done
+  Created wheel for pymsgbox: filename=PyMsgBox-1.0.9-py3-none-any.whl size=7416 sha256=5e4e447bd87f97893650d02e87d42c36b0dec6631262bff40bf1df6858fbed3f
+  Stored in directory: c:\users\chesh\appdata\local\pip\cache\wheels\97\61\22\1a0de2324b204d675c5bfb28b944101eb48dcf1a1fe87bcce7
+Successfully built PyAutoGUI pyscreeze pymsgbox
+Installing collected packages: pytweening, pyrect, pyperclip, pymsgbox, pyscreeze, pygetwindow, mouseinfo, PyAutoGUI
+  DEPRECATION: pytweening is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  Running setup.py install for pytweening ... done
+  DEPRECATION: pyrect is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  Running setup.py install for pyrect ... done
+  DEPRECATION: pyperclip is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  Running setup.py install for pyperclip ... done
+  DEPRECATION: pygetwindow is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  Running setup.py install for pygetwindow ... done
+  DEPRECATION: mouseinfo is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559
+  Running setup.py install for mouseinfo ... done
+Successfully installed PyAutoGUI-0.9.54 mouseinfo-0.1.3 pygetwindow-0.0.9 pymsgbox-1.0.9 pyperclip-1.8.2 pyrect-0.2.0 pyscreeze-0.1.30 pytweening-1.0.7
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install maskpass
+Collecting maskpass
+  Downloading maskpass-0.3.7-py3-none-any.whl (9.2 kB)
+Collecting pynput
+  Downloading pynput-1.7.6-py2.py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 1.7 MB/s eta 0:00:00
+Requirement already satisfied: six in c:\users\chesh\appdata\local\programs\python\python310\lib\site-packages (from pynput->maskpass) (1.16.0)
+Installing collected packages: pynput, maskpass
+Successfully installed maskpass-0.3.7 pynput-1.7.6
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install requests
+Collecting requests
+  Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+     ---------------------------------------- 62.6/62.6 kB 1.7 MB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.3.2-cp310-cp310-win_amd64.whl (100 kB)
+     ---------------------------------------- 100.3/100.3 kB 2.8 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.6-py3-none-any.whl (61 kB)
+     ---------------------------------------- 61.6/61.6 kB 3.2 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.1.0-py3-none-any.whl (104 kB)
+     ---------------------------------------- 104.6/104.6 kB ? eta 0:00:00
+Collecting certifi>=2017.4.17
+  Downloading certifi-2023.11.17-py3-none-any.whl (162 kB)
+     ---------------------------------------- 162.5/162.5 kB 4.9 MB/s eta 0:00:00
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
+  WARNING: The script normalizer.exe is installed in 'C:\Users\chesh\AppData\Local\Programs\Python\Python310\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed certifi-2023.11.17 charset-normalizer-3.3.2 idna-3.6 requests-2.31.0 urllib3-2.1.0
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>py -m pip install opencv-python
+Collecting opencv-python
+  Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl (38.1 MB)
+     ---------------------------------------- 38.1/38.1 MB 15.6 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.19.3 in c:\users\chesh\appdata\local\programs\python\python310\lib\site-packages (from opencv-python) (1.26.2)
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.8.1.78
+
+[notice] A new release of pip available: 22.3.1 -> 23.3.1
+[notice] To update, run: C:\Users\chesh\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip
+
+C:\Users\chesh>

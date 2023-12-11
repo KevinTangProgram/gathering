@@ -1,0 +1,39 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+0
+
+Press enter to begin the program.
+Program started on Tue Dec  5 13:58:05 2023
+[['Fiery_Mystery', 18], ['Kandrid', 27]]
+Fiery_Mystery back in service at Tue Dec  5 13:58:22 2023
+Kandrid back in service at Tue Dec  5 13:58:33 2023
+Program resumed on Tue Dec  5 13:58:33 2023
+
+
+Kicked to lobby.
+Mission Aborted on Tue Dec  5 13:58:33 2023
+Program resumed on Tue Dec  5 13:58:51 2023
+Resumed work on Tue Dec  5 14:00:30 2023
+
+KoniKuchen went offline at Tue Dec  5 14:02:24 2023
+Fiery_Mystery went offline at Tue Dec  5 14:07:17 2023
+KoniKuchen back in service at Tue Dec  5 14:13:03 2023
+KoniKuchen went offline at Tue Dec  5 14:13:41 2023
+KoniKuchen back in service at Tue Dec  5 14:13:47 2023
+KoniKuchen went offline at Tue Dec  5 14:13:58 2023
+Cal_and_Ben went offline at Tue Dec  5 14:15:51 2023
+Cal_and_Ben back in service at Tue Dec  5 14:16:02 2023
+Cal_and_Ben went offline at Tue Dec  5 14:21:36 2023
+JohnBleu went offline at Tue Dec  5 14:22:02 2023
+User not found at Tue Dec  5 14:22:13 2023
+
+Kicked out of server
+Mission Aborted
+
+C:\Users\chesh\professions>

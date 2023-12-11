@@ -1,0 +1,35 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Tue Dec  5 01:21:04 2023
+Recess taken on Tue Dec  5 01:25:42 2023
+Resumed work on Tue Dec  5 01:27:59 2023
+
+
+Kicked to lobby.
+Mission Aborted on Tue Dec  5 01:42:56 2023
+Program resumed on Tue Dec  5 01:43:13 2023
+Nepmia went offline at Tue Dec  5 02:01:12 2023
+Naraka00 went offline at Tue Dec  5 02:28:54 2023
+Nepmia no longer being tracked at Tue Dec  5 02:31:13 2023
+Naraka00 no longer being tracked at Tue Dec  5 02:58:55 2023
+Program resumed on Tue Dec  5 02:58:55 2023
+
+Health dropped from 23630.0 to 49.0 at Tue Dec  5 02:59:06 2023
+
+Mission Aborted on Tue Dec  5 02:59:06 2023
+Program resumed on Tue Dec  5 02:59:23 2023
+Node out of range.
+Last recoreded position:  [-137.5, 72.0, -1609.5]
+Failed to reach:  [476.0, 95.0, -522.0]
+
+Mission Aborted on Tue Dec  5 02:59:25 2023
+
+C:\Users\chesh\professions>
