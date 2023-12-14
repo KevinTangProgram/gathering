@@ -1,0 +1,65 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Thu Dec 14 00:16:44 2023
+MilkeeW went offline at Thu Dec 14 00:17:38 2023
+Api call bad request at Thu Dec 14 00:18:44 2023
+Api call bad request at Thu Dec 14 00:19:49 2023
+Api call bad request at Thu Dec 14 00:20:54 2023
+Api call bad request at Thu Dec 14 00:21:50 2023
+Api call bad request at Thu Dec 14 00:22:45 2023
+Api call bad request at Thu Dec 14 00:23:40 2023
+Api call bad request at Thu Dec 14 00:24:36 2023
+Api call bad request at Thu Dec 14 00:25:31 2023
+Api call bad request at Thu Dec 14 00:26:27 2023
+PraetorianWolf went offline at Thu Dec 14 00:27:22 2023
+Cal_and_Ben went offline at Thu Dec 14 00:27:28 2023
+PraetorianWolf back in service at Thu Dec 14 00:29:03 2023
+LesbianDream went offline at Thu Dec 14 00:31:38 2023
+MilkeeW no longer being tracked at Thu Dec 14 00:47:40 2023
+Cal_and_Ben no longer being tracked at Thu Dec 14 00:57:33 2023
+LesbianDream no longer being tracked at Thu Dec 14 01:01:38 2023
+Program resumed on Thu Dec 14 01:02:11 2023
+
+Resumed work on Thu Dec 14 01:03:04 2023
+
+Recess taken on Thu Dec 14 01:40:47 2023
+Resumed work on Thu Dec 14 01:42:57 2023
+
+PraetorianWolf went offline at Thu Dec 14 02:14:04 2023
+PraetorianWolf back in service at Thu Dec 14 02:14:11 2023
+Program resumed on Thu Dec 14 02:14:43 2023
+
+Aerrihn went offline at Thu Dec 14 02:16:37 2023
+PraetorianWolf went offline at Thu Dec 14 02:29:44 2023
+Aerrihn no longer being tracked at Thu Dec 14 02:46:39 2023
+PraetorianWolf no longer being tracked at Thu Dec 14 02:59:46 2023
+Program resumed on Thu Dec 14 03:00:19 2023
+
+Recess taken on Thu Dec 14 03:06:06 2023
+Resumed work on Thu Dec 14 03:08:17 2023
+
+Recess taken on Thu Dec 14 03:46:23 2023
+Resumed work on Thu Dec 14 03:48:36 2023
+
+Traceback (most recent call last):
+  File "C:\Users\chesh\professions\code.py", line 2450, in <module>
+    main()
+  File "C:\Users\chesh\professions\code.py", line 2422, in main
+    healthDanger = farm(previousHealth, durability, speedBomb, speedClock, leftClick, farmTime + pointOfInterest[i].delay, pointOfInterest[i].rapidClick, keyPress = keyPress, dangerString = dangerString, firstStrike = firstStrike)
+  File "C:\Users\chesh\professions\code.py", line 1166, in farm
+    py.keyUp('shift')
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\pyautogui\__init__.py", line 593, in wrapper
+    failSafeCheck()
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\pyautogui\__init__.py", line 1734, in failSafeCheck
+    raise FailSafeException(
+pyautogui.FailSafeException: PyAutoGUI fail-safe triggered from mouse moving to a corner of the screen. To disable this fail-safe, set pyautogui.FAILSAFE to False. DISABLING FAIL-SAFE IS NOT RECOMMENDED.
+
+C:\Users\chesh\professions>

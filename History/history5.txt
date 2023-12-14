@@ -1,0 +1,37 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Tue Dec 12 23:43:37 2023
+PraetorianWolf went offline at Tue Dec 12 23:50:49 2023
+PraetorianWolf back in service at Wed Dec 13 00:05:42 2023
+Program resumed on Wed Dec 13 00:06:15 2023
+
+PraetorianWolf went offline at Wed Dec 13 00:07:32 2023
+PraetorianWolf detected in world 6 at Wed Dec 13 00:09:48 2023
+
+Kicked out of server
+Mission Aborted on Wed Dec 13 00:41:08 2023
+Program resumed on Wed Dec 13 00:41:26 2023
+Cal_and_Ben no longer being tracked at Wed Dec 13 01:05:50 2023
+Program resumed on Wed Dec 13 01:06:23 2023
+
+PraetorianWolf back in service at Wed Dec 13 01:06:56 2023
+Program resumed on Wed Dec 13 01:07:28 2023
+
+Traceback (most recent call last):
+  File "C:\Users\chesh\professions\work.py", line 2433, in <module>
+    main()
+  File "C:\Users\chesh\professions\work.py", line 2329, in main
+    dangerString = checkModerators(keyPress, dangerString)
+  File "C:\Users\chesh\professions\work.py", line 1588, in checkModerators
+    if (len(dangerString) > 0 and dangerString[-1] == '$'):
+TypeError: object of type 'NoneType' has no len()
+
+C:\Users\chesh\professions>

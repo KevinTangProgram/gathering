@@ -1,4 +1,3 @@
-from skimage.metrics import structural_similarity as ssim
 from cryptography.fernet import Fernet
 import matplotlib.image as mpimg
 import pydirectinput as pydirect
@@ -849,17 +848,12 @@ def server(keyPress):
 					verify.left
 					break
 				except:
-					try:
-						verify = py.locateOnScreen(directory + 'logo1.png', region=locateLogo)
-						verify.left
+					py.moveTo(960, 575)
+					time.sleep(0.5)
+					py.click()
+					time.sleep(5)
+					if (time.time() > lobbyStartTime):
 						break
-					except:
-						py.moveTo(960, 575)
-						time.sleep(0.5)
-						py.click()
-						time.sleep(5)
-						if (time.time() > lobbyStartTime):
-							break
 			if (time.time() < lobbyStartTime):
 				py.moveTo(1040, 1000)
 				time.sleep(0.5)
@@ -870,7 +864,7 @@ def server(keyPress):
 				time.sleep(5)
 				py.moveTo(750, 950)
 				py.click()
-				time.sleep(30)
+				time.sleep(10)
 
 def lobby(keyPress):
 	movementStatus = keyPress.copy()
@@ -896,7 +890,7 @@ def lobby(keyPress):
 			time.sleep(30)
 	#case fails if logging in causes crash
 
-def checkVitals(dangerString, firstStrike, previousHealth = [1, 1], keyPress = [False, False, False, False]):
+def checkVitals(dangerString, previousHealth = [1, 1], keyPress = [False, False, False, False]):
 	currentHealth = getHealth(previousHealth)
 	if (vitals and previousHealth[0] > currentHealth[0]):
 		print("Health dropped from", previousHealth[0], "to", currentHealth[0], "at", time.ctime(time.time()))
@@ -907,7 +901,7 @@ def checkVitals(dangerString, firstStrike, previousHealth = [1, 1], keyPress = [
 			currentHealth = getHealth(currentHealth)
 	elif (currentHealth[0]/currentHealth[1] < 0.5):
 		print("\nHealth dropped to below 50%.")
-		dangerString = repair(keyPress, dangerString, firstStrike)
+		dangerString = repair(keyPress, dangerString)
 		return [1, 1]
 	return [currentHealth, dangerString]
 
@@ -916,7 +910,7 @@ def eta(destination, speed, keyPress):
 	distance = math.sqrt((destination[0] - currentPosition[0])**2 + (destination[2] - currentPosition[2])**2)
 	return distance / speed
 
-def movementSpell(dangerString, firstStrike, targetPitch = 90.0, targetYaw = -360, keyPress = [False, False, False, False]):
+def movementSpell(dangerString, targetPitch = 90.0, targetYaw = -360, keyPress = [False, False, False, False]):
 	if (character == "Archer"):
 		changeRotation(targetPitch = targetPitch, targetYaw = targetYaw)
 		py.press('1')
@@ -949,7 +943,7 @@ def movementSpell(dangerString, firstStrike, targetPitch = 90.0, targetYaw = -36
 		previousY = getPosition(keyPress = keyPress)[1]
 		currentY = 0.0
 		finishTime = time.time() + 10
-		dangerString = checkModerators(keyPress, dangerString, firstStrike)
+		dangerString = checkModerators(keyPress, dangerString)
 		while(True):
 			currentY = getPosition(keyPress = keyPress)[1]
 			if (currentY == previousY):
@@ -1117,7 +1111,7 @@ def getInitialModList():
 			pass
 	return [dangerString, modTimeOut]
 
-def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay = 7.0, autoClicker = False, keyPress = [False, False, False, False], dangerString = "", firstStrike = [False]):
+def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay = 7.0, autoClicker = False, keyPress = [False, False, False, False], dangerString = ""):
 	py.press('2')
 	if (speedBomb[0]):
 		delay /= 2.0
@@ -1148,7 +1142,7 @@ def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay =
 		elif (speedClock[0] < time.time() and speedBomb[0]):
 			speedBomb[0] = False
 			print("Speed bomb finished on", time.ctime(time.time()))
-		heartDanger = checkVitals(dangerString, firstStrike, previousHealth, keyPress = keyPress)
+		heartDanger = checkVitals(dangerString, previousHealth, keyPress = keyPress)
 		previousHealth = heartDanger[0]
 		dangerString = heartDanger[1]
 		lagTime = []
@@ -1156,7 +1150,7 @@ def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay =
 			returnData = getInitialModList()
 			dangerString = returnData[0]
 			lagTime = returnData[1]
-		dangerString = checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=lagTime)
+		dangerString = checkModerators(keyPress, dangerString, initialTimeOut=lagTime)
 		durability[0] = checkDurability()
 		randomRotation(keyPress)
 		difference = stopTime - time.time()
@@ -1166,18 +1160,6 @@ def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay =
 		py.keyUp('shift')
 		keyPress[1] = False
 	return [previousHealth, dangerString]
-
-def compare_images(image1_path, image2_path):
-    image1 = cv2.imread(image1_path)
-    image2 = cv2.imread(image2_path)
-
-    # Convert images to grayscale
-    image1_gray = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
-    image2_gray = cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
-
-    # Compute SSIM between two images
-    (score, diff) = ssim(image1_gray, image2_gray, full=True)
-    return score
 
 def getPosition(display=False, keyPress = [False, False, False, False], iterations = 0):
 	try:
@@ -1204,7 +1186,7 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 	except:
 		movementStatus = keyPress.copy()
 		#screenshot.save(os.getcwd() + '\\History\\' + 'unprocessedCoordinates' + str(time.time()) + '.png')
-		if (iterations > 10):
+		if (iterations > 1):
 			if (keyPress[2] == True):
 				print("\nFailed to receive position coordinates.", end = "")
 				abort(False, keyPress)
@@ -1221,7 +1203,7 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 				maskpass.askpass(prompt="Press enter to resume the program.", mask="")
 				startup()
 				if (character == "Archer"):
-					dangerString = movementSpell(dangerString = "", firstStrike = [False], keyPress = keyPress)
+					dangerString = movementSpell(dangerString = "", keyPress = keyPress)
 				startMove(movementArray = movementStatus, keyPress = keyPress)
 			return getPosition(keyPress = keyPress)
 		else:
@@ -1232,21 +1214,20 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 				return getPosition(keyPress = keyPress)
 			except:
 				pass
-			filePath = directory + '\\coordinates\\'
-			image1_path = directory + "unprocessedCoordinates.png"
-			for i in range(1, 17):
-				image2_path = filePath + "coordinates" + str(i) + ".png"
-				similarity_percentage = compare_images(image1_path, image2_path) * 100
-				if (similarity_percentage > 99):
-					stopMove(keyPress)
-					print(iterations)
-					time.sleep(30)
-					startMove(movementArray = movementStatus, keyPress = keyPress)
-					server(keyPress)
-					py.press('f3')
+			if (open(directory + "lobbyImage1.png", "rb").read() == open(directory + "unprocessedCoordinates.png", "rb").read()):
+				stopMove(keyPress)
+				time.sleep(30)
+				screenshot = py.screenshot(region=positionScreenshot)
+				screenshot.save(directory + 'unprocessedCoordinates.png')
+				startMove(movementArray = movementStatus, keyPress = keyPress)
+				if (open(directory + "lobbyImage3.png", "rb").read() == open(directory + "unprocessedCoordinates.png", "rb").read() or open(directory + "lobbyImage5.png", "rb").read() == open(directory + "unprocessedCoordinates.png", "rb").read()):
+					pass
+				else:
+					lobby(keyPress)
 					return getPosition(keyPress = keyPress)
-			else:
-				pass
+			if (open(directory + "lobbyImage3.png", "rb").read() == open(directory + "unprocessedCoordinates.png", "rb").read() or open(directory + "lobbyImage5.png", "rb").read() == open(directory + "unprocessedCoordinates.png", "rb").read()):
+				server(keyPress)
+				return getPosition(keyPress = keyPress)
 			return getPosition(keyPress = keyPress, iterations = iterations + 1)
 
 def getDirection(display=False, keyPress = [False, False, False, False], iterations = 0):
@@ -1266,7 +1247,7 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 	except:
 		movementStatus = keyPress.copy()
 		#screenshot.save(os.getcwd() + '\\History\\' + 'unprocessedDirection' + str(time.time()) + '.png')
-		if (iterations > 10):
+		if (iterations > 1):
 			if (keyPress[2] == True):
 				print("\nFailed to receive direction angles.", end = "")
 				abort(False, keyPress = keyPress)
@@ -1283,7 +1264,7 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 				maskpass.askpass(prompt="Press enter to resume the program.", mask="")
 				startup()
 				if (character == "Archer"):
-					dangerString = movementSpell(dangerString = "", firstStrike = [False], keyPress = keyPress)
+					dangerString = movementSpell(dangerString = "", keyPress = keyPress)
 				startMove(movementArray = movementStatus,  keyPress = keyPress)
 			return getDirection(keyPress = keyPress)
 		else:
@@ -1294,21 +1275,20 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 				return getDirection(keyPress = keyPress)
 			except:
 				pass
-			filePath = directory + '\\directions\\'
-			image1_path = directory + "unprocessedDirection.png"
-			for i in range(1, 17):
-				image2_path = filePath + "direction" + str(i) + ".png"
-				similarity_percentage = compare_images(image1_path, image2_path) * 100
-				if (similarity_percentage > 99):
-					stopMove(keyPress)
-					print(iterations)
-					time.sleep(30)
-					startMove(movementArray = movementStatus, keyPress = keyPress)
-					server(keyPress)
-					py.press('f3')
+			if (open(directory + "lobbyImage2.png", "rb").read() == open(directory + "unprocessedDirection.png", "rb").read()):
+				stopMove(keyPress)
+				time.sleep(30)
+				screenshot = py.screenshot(region=directionScreenshot)			#1.12
+				screenshot.save(directory + 'unprocessedDirection.png')
+				startMove(movementArray = movementStatus, keyPress = keyPress)
+				if (open(directory + "lobbyImage4.png", "rb").read() == open(directory + "unprocessedDirection.png", "rb").read() or open(directory + "lobbyImage6.png", "rb").read() == open(directory + "unprocessedDirection.png", "rb").read()):
+					pass
+				else:
+					lobby(keyPress)
 					return getDirection(keyPress = keyPress)
-			else:
-				pass
+			if (open(directory + "lobbyImage4.png", "rb").read() == open(directory + "unprocessedDirection.png", "rb").read() or open(directory + "lobbyImage6.png", "rb").read() == open(directory + "unprocessedDirection.png", "rb").read()):
+				server(keyPress)
+				return getDirection(keyPress = keyPress)
 			return getDirection(keyPress = keyPress, iterations = iterations + 1)
 
 def getVisual(display = False, node = False, yLevel = 0.5):
@@ -1477,7 +1457,7 @@ def jump(check = True, keyPress = [False, False, False, False]):
 		py.keyDown('space')
 		py.keyUp('space')
 
-def leap(destination, dangerString, firstStrike, keyPress = [False, False, False, False]):
+def leap(destination, dangerString, keyPress = [False, False, False, False]):
 	currentPosition = getPosition(keyPress = keyPress)
 	distance = math.sqrt((destination[0]-currentPosition[0])**2 + (destination[2]-currentPosition[2])**2)
 	jumpAngle = 90.0
@@ -1514,10 +1494,10 @@ def leap(destination, dangerString, firstStrike, keyPress = [False, False, False
 				break
 	directionAngle = calculateTheta(currentPosition, destination)
 	changeRotation(targetPitch = jumpAngle, targetYaw = directionAngle, keyPress = keyPress)
-	dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+	dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 	return dangerString
 
-def hop(keyPress, dangerString, firstStrike):
+def hop(keyPress, dangerString):
 	py.keyDown('space')
 	py.keyUp('space')
 	time.sleep(0.05)
@@ -1525,7 +1505,7 @@ def hop(keyPress, dangerString, firstStrike):
 	time.sleep(0.5)
 	py.keyUp('space')
 	futureTime = time.time() + 0.5
-	dangerString = checkModerators(keyPress, dangerString, firstStrike)
+	dangerString = checkModerators(keyPress, dangerString)
 	if (time.time() < futureTime):
 		time.sleep(futureTime - time.time())
 	return dangerString
@@ -1578,7 +1558,7 @@ def abort(temporary = False, keyPress = [False, False, False, False], iterations
 			else:
 				priorHealth = presentHealth
 		if (character == "Archer"):
-			dangerString = movementSpell(dangerString = "", firstStrike = [False], keyPress = keyPress)
+			dangerString = movementSpell(dangerString = "", keyPress = keyPress)
 		startMove(movementArray = movementStatus, keyPress = keyPress)
 		print("Program resumed on", time.ctime(time.time()))
 	else:
@@ -1599,7 +1579,7 @@ def stringToList(dangerString):
 		dangerList.append(modName)
 	return dangerList
 
-def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHorse = False, originalCall = True):
+def checkModerators(keyPress, dangerString, initialTimeOut=[], onHorse = False):
 	response = {}
 	shiftStatus = False
 	if (not blindCheck):
@@ -1633,33 +1613,7 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 					time.sleep(5)
 					py.click()
 				elif (" detected in world " in response.text):
-					if (firstStrike[0]):
-						abort(False, keyPress = keyPress)
-					else:
-						stopMove(keyPress)
-						firstStrike[0] = True
-						py.press('/')
-						time.sleep(0.5)
-						py.write('class')
-						py.press('enter')
-						time.sleep(1)
-						
-						mousePositionList = [890, 925, 960, 1000]
-						py.moveTo(mousePositionList[int(random.random() * 4)], 410)
-						time.sleep(5)
-						py.click()
-						time.sleep(1800)
-
-						py.press('esc')
-						time.sleep(0.5)
-						py.moveTo(960, 500)
-						time.sleep(0.5)
-						py.click()
-						time.sleep(30)
-						server(keyPress)
-						py.press('f3')
-						returnData = getInitialModList()
-						dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
+					abort(False, keyPress = keyPress)
 					#teleport(keyPress)
 					#abort(False, keyPress = keyPress)
 				elif (" went offline" in response.text):
@@ -1693,9 +1647,8 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 					except:
 						time.sleep(60)
 						server(keyPress)
-						py.press('f3')
 					returnData = getInitialModList()
-					dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
+					dangerString = checkModerators(keyPress, returnData[0], returnData[1])
 				else:
 					stopMove(keyPress)
 					py.press('/')
@@ -1731,33 +1684,7 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 							timeOut.append(time.time() + 1800)
 							dangerString = dangerString.replace('|' + modOfInterest + '|', "")
 						elif (" detected in world " in response.text):
-							if (firstStrike[0]):
-								abort(False, keyPress = keyPress)
-							else:
-								stopMove(keyPress)
-								firstStrike[0] = True
-								py.press('/')
-								time.sleep(0.5)
-								py.write('class')
-								py.press('enter')
-								time.sleep(1)
-								
-								mousePositionList = [890, 925, 960, 1000]
-								py.moveTo(mousePositionList[int(random.random() * 4)], 410)
-								time.sleep(5)
-								py.click()
-								time.sleep(1800)
-
-								py.press('esc')
-								time.sleep(0.5)
-								py.moveTo(960, 500)
-								time.sleep(0.5)
-								py.click()
-								time.sleep(30)
-								server(keyPress)
-								py.press('f3')
-								returnData = getInitialModList()
-								dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
+							abort(False, keyPress = keyPress)
 						elif ("User not found" in response.text):
 							time.sleep(30)
 							try:
@@ -1770,45 +1697,43 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 							except:
 								time.sleep(60)
 								server(keyPress)
-								py.press('f3')
 							returnData = getInitialModList()
-							dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
+							dangerString = checkModerators(keyPress, returnData[0], returnData[1])
 						else:
 							stopMove(keyPress)
 							time.sleep(50)				
 							if ("Error with axios call" in response.text):
 								print(dangerString)
 								returnData = getInitialModList()
-								dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)			
+								dangerString = checkModerators(keyPress, returnData[0], returnData[1])			
 					time.sleep(5)
 
 				py.press('m')
 				time.sleep(30)
 				returnData = getInitialModList()
-				dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
-				if (originalCall):
-					print("Program resumed on", time.ctime(time.time()), '\n')
-					getPosition()
+				dangerString = checkModerators(keyPress, returnData[0], returnData[1])
+				print("Program resumed on", time.ctime(time.time()), '\n')
+				getPosition()
 
-					py.press('/')
-					time.sleep(0.5)
-					py.write('class')
-					py.press('enter')
-					time.sleep(1)
-					py.moveTo(850, 410)
-					time.sleep(5)
-					py.click()
-					if (movementStatus[2] == True):
-						py.keyDown('space')
-						keyPress[2] = True
-					time.sleep(1)
-					py.press('/')
-					time.sleep(0.5)
-					py.write('stream')
-					py.press('enter')
-					if (onHorse):
-						mountHorse(keyPress)
-					startMove(movementArray = movementStatus, keyPress = keyPress)
+				py.press('/')
+				time.sleep(0.5)
+				py.write('class')
+				py.press('enter')
+				time.sleep(1)
+				py.moveTo(850, 410)
+				time.sleep(5)
+				py.click()
+				if (movementStatus[2] == True):
+					py.keyDown('space')
+					keyPress[2] = True
+				time.sleep(1)
+				py.press('/')
+				time.sleep(0.5)
+				py.write('stream')
+				py.press('enter')
+				if (onHorse):
+					mountHorse(keyPress)
+				startMove(movementArray = movementStatus, keyPress = keyPress)
 		else:
 			print(response.text.replace("\"", "") + " at " + time.ctime(time.time()))
 			#teleport(keyPress)
@@ -1820,7 +1745,7 @@ def calculateDistance(targetPitch, targetYaw, display = False):
 	print("Predicted Distance: ", distance)
 	pointOne = getPosition()
 	changeRotation(targetPitch = targetPitch, targetYaw = targetYaw)
-	movementSpell(dangerString = "", firstStrike = [False])
+	movementSpell(dangerString = "")
 	time.sleep(3)
 	pointTwo = getPosition()
 	r2 = math.sqrt((pointTwo[0] - pointOne[0])**2 + (pointTwo[2] - pointOne[2])**2)
@@ -2097,7 +2022,7 @@ def attack(keyPress, coords = [0.0, 0.0, 0.0]):
 		if (startTime + 15 < time.time() and enemyHealth() == 0):
 			break
 	
-def repair(keyPress, dangerString, firstStrike, deposit = True):
+def repair(keyPress, dangerString, deposit = True):
 	stopMove(keyPress)
 	previousPosition = [0.0, 0.0, 0.0]
 	if (not proximity([978.0, 73.0, -671.0], radius = 999, abortRadius = 499999, keyPress = keyPress)):
@@ -2108,9 +2033,9 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 		checkpoint = gps[i].coordinates
 		if (checkpoint[1] == -1):
 			changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2], keyPress = keyPress)
-			dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+			dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 		elif (checkpoint[1] == -2):
-			dangerString = leap(checkpoint, dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+			dangerString = leap(checkpoint, dangerString = dangerString, keyPress = keyPress)
 		elif (checkpoint[1] == -3):
 			changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2], keyPress = keyPress)
 			startMove(1, keyPress)
@@ -2124,7 +2049,7 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 			if (not gps[i].horse and i != 0 and gps[i - 1].horse):
 				dismountHorse(keyPress)
 				py.press('1')
-				dangerString = checkModerators(keyPress, dangerString, firstStrike)
+				dangerString = checkModerators(keyPress, dangerString)
 			elif (gps[i].horse and not gps[i - 1].horse):
 				mountHorse(keyPress)
 			offTarget = False
@@ -2134,7 +2059,7 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 				else:
 					currentPosition = changeRotation(checkpoint, 39.0, keyPress = keyPress)
 				startMove(1, keyPress)
-				dangerString = checkModerators(keyPress, dangerString, firstStrike, onHorse = gps[i].horse)
+				dangerString = checkModerators(keyPress, dangerString, onHorse = gps[i].horse)
 				offTarget = True
 			while(not proximity(checkpoint, 25, 99999, keyPress = keyPress)):
 				#previousHealth = checkVitals(previousHealth, keyPress = keyPress)
@@ -2146,7 +2071,7 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 					jump(keyPress = keyPress)
 				if (currentPosition[0] == previousPosition[0] and currentPosition[2] == previousPosition[2]):
 					patience += 1
-					dangerString = hop(keyPress, dangerString, firstStrike)
+					dangerString = hop(keyPress, dangerString)
 				else:
 					patience = 0
 				previousPosition = currentPosition
@@ -2181,7 +2106,7 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 						jump(keyPress = keyPress)
 					if (currentPosition[0] == previousPosition[0] and currentPosition[2] == previousPosition[2]):
 						patience += 1
-						dangerString = hop(keyPress, dangerString, firstStrike)
+						dangerString = hop(keyPress, dangerString)
 					else:
 						patience = 0
 					previousPosition = currentPosition
@@ -2215,7 +2140,6 @@ def main():
 	keyPress = [False, False, False, False]					# 0 = ctrl | 1 = shift | 2 = space | 3 = w
 	durability = [False]
 	speedBomb = [False]
-	firstStrike = [False]
 	speedClock = [0.0]
 	tryAttack = False
 	enemyHealthRead = 1
@@ -2224,7 +2148,7 @@ def main():
 	dangerString = responseData[0]
 	modTimeOut = responseData[1]
 
-	dangerString = checkModerators([False, False, False, False], dangerString, firstStrike, modTimeOut)
+	dangerString = checkModerators([False, False, False, False], dangerString, modTimeOut)
 
 	try:
 		previousPosition = getPosition(keyPress = keyPress)
@@ -2238,7 +2162,7 @@ def main():
 			for i in range(len(pointOfInterest)):
 				if (pointOfInterest[i].coordinates[1] == -1):
 					escapeSpell = False
-			dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+			dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 		else:
 			escapeSpell = False
 		if (sprint):
@@ -2247,26 +2171,26 @@ def main():
 		if (waterLevel != 0.0):
 			speed = swimSpeed
 		if (level == 110 and proximity([978.0, 73.0, -671.0], radius = 999, abortRadius = 499999, keyPress = keyPress)):
-			dangerString = repair(keyPress = keyPress, dangerString = dangerString, firstStrike = firstStrike, deposit = False)
+			dangerString = repair(keyPress = keyPress, dangerString = dangerString, deposit = False)
 		while (True):
 			if (movementSpeed and escapeSpell):
 				time.sleep(0.5)
-				dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+				dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 				movementSpeed = False
 			elif (escapeSpell):
 				movementSpeed = True
 			for i in range(len(pointOfInterest)):
 				if (durability[0] and level == 110):
-					dangerString = repair(keyPress, dangerString = dangerString, firstStrike = firstStrike)
+					dangerString = repair(keyPress, dangerString = dangerString)
 					durability[0] = False
 					break
 				checkpoint = pointOfInterest[i].coordinates
 				if (checkpoint[1] == -1.0):														#Archer escape spell
-					dangerString = movementSpell(dangerString, firstStrike, checkpoint[2], checkpoint[0], keyPress = keyPress)
+					dangerString = movementSpell(dangerString, checkpoint[2], checkpoint[0], keyPress = keyPress)
 				elif (checkpoint[1] == -2.0):													#Assassin vanish + hop
 					changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2])
-					dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
-					dangerString = hop(keyPress, dangerString, firstStrike)
+					dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
+					dangerString = hop(keyPress, dangerString)
 				elif (checkpoint[1] == -3.0):													#Assassin sneak for fine adjustment
 					changeRotation(targetYaw = checkpoint[2])
 					currentPosition = getPosition(keyPress = keyPress)
@@ -2277,27 +2201,27 @@ def main():
 					stopMove(keyPress = keyPress)
 				elif (checkpoint[1] == -4.0):													#Assassin vanish predetermined
 					changeRotation(destination = [482.5, 95.0, -518.0], targetPitch = checkpoint[0])
-					dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+					dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 				elif (checkpoint[1] == -5.0):													#Assassin quick vanish + hop
 					changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2])
-					dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+					dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 					py.press('2')
-					dangerString = hop(keyPress, dangerString, firstStrike)
+					dangerString = hop(keyPress, dangerString)
 				elif (checkpoint[1] == -6.0):													#Assassin vanish
 					changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2])
-					dangerString = movementSpell(dangerString = dangerString, firstStrike = firstStrike, keyPress = keyPress)
+					dangerString = movementSpell(dangerString = dangerString, keyPress = keyPress)
 				elif (checkpoint[1] == -7.0):													#Assassin hop
 					changeRotation(targetPitch = checkpoint[0], targetYaw = checkpoint[2])
-					dangerString = hop(keyPress, dangerString, firstStrike)
+					dangerString = hop(keyPress, dangerString)
 				elif (not pointOfInterest[i].rooted):
 					if (not pointOfInterest[i].guidance):
 						if (character == "Assassin" and not proximity(checkpoint, radius = pointOfInterest[i].radius, keyPress = keyPress)):
-							dangerString = leap(checkpoint, dangerString, firstStrike, keyPress)
+							dangerString = leap(checkpoint, dangerString, keyPress)
 						while(not proximity(checkpoint, keyPress = keyPress)):
-							healthDanger = checkVitals(dangerString, firstStrike, previousHealth, keyPress = keyPress)
+							healthDanger = checkVitals(dangerString, previousHealth, keyPress = keyPress)
 							previousHealth = healthDanger[0]
 							dangerString = healthDanger[1]
-							dangerString = checkModerators(keyPress, dangerString, firstStrike)
+							dangerString = checkModerators(keyPress, dangerString)
 							if (previousHealth[1] == 1):
 								break
 							changeRotation(checkpoint, keyPress = keyPress)
@@ -2310,10 +2234,10 @@ def main():
 						if (previousHealth[1] == 1):
 							break
 						while(not proximity(checkpoint, radius = pointOfInterest[i].radius, keyPress = keyPress)):
-							healthDanger = checkVitals(dangerString, firstStrike, previousHealth, keyPress = keyPress)
+							healthDanger = checkVitals(dangerString, previousHealth, keyPress = keyPress)
 							previousHealth = healthDanger[0]
 							dangerString = healthDanger[1]
-							dangerString = checkModerators(keyPress, dangerString, firstStrike)
+							dangerString = checkModerators(keyPress, dangerString)
 							if (previousHealth[1] == 1):
 								break
 							changeRotation(checkpoint, keyPress = keyPress)
@@ -2334,16 +2258,16 @@ def main():
 					else:
 						offTarget = False
 						if (character == "Assassin" and not proximity(checkpoint, radius = pointOfInterest[i].radius, keyPress = keyPress)):
-							dangerString = leap(checkpoint, dangerString, firstStrike, keyPress)
+							dangerString = leap(checkpoint, dangerString, keyPress)
 						if (not proximity(checkpoint, keyPress = keyPress)):
 							changeRotation(checkpoint, 39.0, keyPress = keyPress)
 							startMove(movementChoice, keyPress)
 							offTarget = True
 						while(not proximity(checkpoint, keyPress = keyPress)):
-							healthDanger = checkVitals(dangerString, firstStrike, previousHealth, keyPress = keyPress)
+							healthDanger = checkVitals(dangerString, previousHealth, keyPress = keyPress)
 							previousHealth = healthDanger[0]
 							dangerString = healthDanger[1]
-							dangerString = checkModerators(keyPress, dangerString, firstStrike)
+							dangerString = checkModerators(keyPress, dangerString)
 							if (previousHealth[1] == 1):
 								break
 							currentPosition = changeRotation(checkpoint, 39.0, keyPress = keyPress)
@@ -2374,10 +2298,10 @@ def main():
 							if (currentTime + 5 < time.time() and keyPress[2] == False):
 								jump(False, keyPress = keyPress)
 								currentTime = time.time()
-							healthDanger = checkVitals(dangerString, firstStrike, previousHealth, keyPress = keyPress)
+							healthDanger = checkVitals(dangerString, previousHealth, keyPress = keyPress)
 							previousHealth = healthDanger[0]
 							dangerString = healthDanger[1]
-							dangerString = checkModerators(keyPress, dangerString, firstStrike)
+							dangerString = checkModerators(keyPress, dangerString)
 							if (previousHealth[1] == 1):
 								break
 							currentPosition = changeRotation(checkpoint, 39.0, keyPress = keyPress)
@@ -2419,7 +2343,7 @@ def main():
 						changeRotation(checkpoint, keyPress = keyPress)
 					drawBlood = previousHealth.copy()
 					
-					healthDanger = farm(previousHealth, durability, speedBomb, speedClock, leftClick, farmTime + pointOfInterest[i].delay, pointOfInterest[i].rapidClick, keyPress = keyPress, dangerString = dangerString, firstStrike = firstStrike)
+					healthDanger = farm(previousHealth, durability, speedBomb, speedClock, leftClick, farmTime + pointOfInterest[i].delay, pointOfInterest[i].rapidClick, keyPress = keyPress, dangerString = dangerString)
 					previousHealth = healthDanger[0]
 					dangerString = healthDanger[1]
 					if (previousHealth[1] == 1):
@@ -2461,3 +2385,36 @@ main()
 #print(checkModerators([False, False, False, False], ""))
 #fixTool([998.5, 76.5, -711.5], [False, False, False, False])
 #calculateSensitivity(display = True)
+
+"""
+up = True
+for a in range(91):
+	angleNumber = a * 1.0
+	downAngle = 0.0
+	if (up):
+		downAngle = 180.0
+		up = False
+	else:
+		up = True
+	distance = calculateDistance(angleNumber, downAngle)
+	distanceList.append(distance)
+	angle = getDirection()
+	directionsList.append(angle[1])
+
+for b in range(len(distanceList)):
+	print(distanceList[b])
+
+for c in range(len(directionsList)):
+	print(directionsList[c])
+"""
+"""
+py.hotkey('alt', 'tab')
+time.sleep(1)
+py.press('enter')
+movementSpell()
+calculateSpeed(display = True, movementStatus = 1)
+#calculateSensitivity(display = True)
+py.keyUp('space')
+py.press('t')
+py.hotkey('alt', 'tab')
+"""
