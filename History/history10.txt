@@ -1,0 +1,105 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Tue Dec 19 00:01:44 2023
+Resumed work on Tue Dec 19 00:03:09 2023
+
+Cal_and_Ben went offline at Tue Dec 19 00:28:43 2023
+JohnBleu went offline at Tue Dec 19 00:38:11 2023
+JohnBleu back in service at Tue Dec 19 00:38:21 2023
+User not found at Tue Dec 19 00:43:54 2023
+
+Kicked out of server
+Mission Aborted on Tue Dec 19 00:46:12 2023
+Program resumed on Tue Dec 19 00:46:29 2023
+JohnBleu went offline at Tue Dec 19 00:48:47 2023
+Cal_and_Ben no longer being tracked at Tue Dec 19 00:58:34 2023
+JohnBleu no longer being tracked at Tue Dec 19 01:18:51 2023
+Cal_and_Ben vanished at Tue Dec 19 01:19:26 2023
+Cal_and_Ben back in service at Tue Dec 19 01:27:35 2023
+Cal_and_Ben back in service at Tue Dec 19 01:28:13 2023
+Program resumed on Tue Dec 19 01:28:46 2023
+
+Error with mod call at Tue Dec 19 01:30:06 2023
+Recess taken on Tue Dec 19 01:36:04 2023
+Resumed work on Tue Dec 19 01:38:13 2023
+
+
+Failed to receive position coordinates on Tue Dec 19 02:52:46 2023. Press enter to resume the program.
+Cal_and_Ben went offline at Tue Dec 19 02:53:13 2023
+Cal_and_Ben no longer being tracked at Tue Dec 19 03:23:15 2023
+Program resumed on Tue Dec 19 03:23:47 2023
+
+Error with mod call at Tue Dec 19 03:24:23 2023
+Error with mod call at Tue Dec 19 03:26:58 2023
+Naraka00 went offline at Tue Dec 19 03:27:01 2023
+Naraka00 no longer being tracked at Tue Dec 19 03:57:06 2023
+Program resumed on Tue Dec 19 03:57:38 2023
+
+Cal_and_Ben went offline at Tue Dec 19 03:58:05 2023
+Cal_and_Ben no longer being tracked at Tue Dec 19 04:28:09 2023
+Error with mod call at Tue Dec 19 04:28:45 2023
+Program resumed on Tue Dec 19 04:28:46 2023
+
+
+Failed to get vitals on Tue Dec 19 04:46:51 2023
+User not found at Tue Dec 19 04:46:51 2023
+Program resumed on Tue Dec 19 04:48:01 2023
+
+Recess taken on Tue Dec 19 04:54:26 2023
+Resumed work on Tue Dec 19 04:57:05 2023
+
+Recess taken on Tue Dec 19 04:57:15 2023
+Resumed work on Tue Dec 19 04:59:19 2023
+
+Slime1480 went offline at Tue Dec 19 04:59:57 2023
+Slime1480 detected in world 32 at Tue Dec 19 05:04:58 2023
+
+Kicked out of server
+Mission Aborted on Tue Dec 19 05:36:48 2023
+Program resumed on Tue Dec 19 05:37:05 2023
+ItzAzura no longer being tracked at Tue Dec 19 05:43:54 2023
+Slime1480 back in service at Tue Dec 19 05:44:31 2023
+Error with mod call at Tue Dec 19 05:45:07 2023
+Program resumed on Tue Dec 19 05:45:07 2023
+
+Error with axios call at Tue Dec 19 05:45:19 2023
+None
+Program resumed on Tue Dec 19 05:45:55 2023
+
+
+Kicked to lobby.
+Mission Aborted on Tue Dec 19 05:45:55 2023
+Program resumed on Tue Dec 19 05:46:12 2023
+Crunkle went offline at Tue Dec 19 05:53:17 2023
+Slime1480 went offline at Tue Dec 19 05:58:25 2023
+Crunkle no longer being tracked at Tue Dec 19 06:23:22 2023
+Slime1480 no longer being tracked at Tue Dec 19 06:28:29 2023
+Program resumed on Tue Dec 19 06:29:01 2023
+
+nazarL back in service at Tue Dec 19 06:42:20 2023
+Program resumed on Tue Dec 19 06:42:52 2023
+
+
+Failed to get vitals on Tue Dec 19 06:47:03 2023
+Recess taken on Tue Dec 19 06:55:12 2023
+Resumed work on Tue Dec 19 06:57:20 2023
+
+nazarL went offline at Tue Dec 19 07:01:33 2023
+nazarL no longer being tracked at Tue Dec 19 07:31:34 2023
+Salted went offline at Tue Dec 19 07:32:06 2023
+Salted no longer being tracked at Tue Dec 19 08:02:11 2023
+Salted went offline at Tue Dec 19 08:02:45 2023
+
+Mission Aborted
+
+C:\Users\chesh\professions>cd professionscccccc
+
+C:\Users\chesh\professions>

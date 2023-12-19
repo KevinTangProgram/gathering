@@ -21,7 +21,7 @@ character = "Assassin"
 blindCheck = False
 
 sprint = True
-farmTime = 4.5
+farmTime = 3.5
 leftClick = True
 shields = False
 waterLevel = 0.0
@@ -52,6 +52,7 @@ locateHeart = (775, 950, 25, 25)
 locateTable = (1085, 395, 40, 40)
 locateLogo = (650, 85, 80, 80)
 locatePlainBook = (990, 485, 40, 35)
+headerLogo = (920, 65, 85, 50)
 
 #fixTool and bank
 locatePickaxeh = (830, 700, 40, 35)
@@ -68,6 +69,7 @@ locateRepair = (1020, 330, 85, 25)
 locateBlank = (795, 355, 40, 40)
 locateArrow = (1085, 340, 35, 35)
 locateBlank2 = (980, 585, 40, 40)
+locatePickaxeh3 = (830, 650, 40, 35)
 
 class Node:
 	def __init__(self, coordinates, guidance = False, farmable = True, tickskipping = False, radius = 16.0, delay = 0.0, rapidClick = False, rooted = False, movement = False):
@@ -1108,7 +1110,6 @@ def getInitialModList():
 						if (j[0] == i["user"]):
 							break
 					else:
-						print(i["user"])
 						if (timeStampString.rindex('1') == 29):
 							dangerString += ('|' + i["user"] + '|')
 						else:
@@ -1232,6 +1233,14 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 				return getPosition(keyPress = keyPress)
 			except:
 				pass
+			try:
+				check = py.locateOnScreen(directory + 'header.png', region=headerLogo)
+				check.left
+				py.press('esc')
+				time.sleep(1)
+				return getPosition(keyPress = keyPress)
+			except:
+				pass
 			filePath = directory + '\\coordinates\\'
 			image1_path = directory + "unprocessedCoordinates.png"
 			for i in range(1, 17):
@@ -1291,6 +1300,14 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 				check = py.locateOnScreen(directory + 'craftingTable.png', region=locateTable)
 				check.left
 				lobby(keyPress)
+				return getDirection(keyPress = keyPress)
+			except:
+				pass
+			try:
+				check = py.locateOnScreen(directory + 'header.png', region=headerLogo)
+				check.left
+				py.press('esc')
+				time.sleep(1)
 				return getDirection(keyPress = keyPress)
 			except:
 				pass
@@ -1649,6 +1666,8 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 						time.sleep(5)
 						py.click()
 						time.sleep(1800)
+						py.press('m')
+						time.sleep(30)
 
 						py.press('esc')
 						time.sleep(0.5)
@@ -1747,6 +1766,8 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 								time.sleep(5)
 								py.click()
 								time.sleep(1800)
+								py.press('m')
+								time.sleep(30)
 
 								py.press('esc')
 								time.sleep(0.5)
@@ -2009,9 +2030,20 @@ def fixTool(checkpoint, keyPress):
 		try:
 			location = py.locateOnScreen(directory + 'questBook.png', region=locateBook)
 			location.left
-			break
+			try:
+				location = py.locateOnScreen(directory + 'pickaxeh.png', region=locatePickaxeh3)
+				location.left
+			except:
+				break
 		except:
 			pass
+	
+	try:
+		location = py.locateOnScreen(directory + 'pickaxeh.png', region=locatePickaxeh3)
+		location.left
+		py.press('e')
+	except:
+		pass
 
 def depositInBank(checkpoint, keyPress):
 	futureTime = time.time() + 30
@@ -2043,10 +2075,21 @@ def depositInBank(checkpoint, keyPress):
 		try:
 			location = py.locateOnScreen(directory + 'questBook.png', region=locateBook)
 			location.left
-			break
+			try:
+				location = py.locateOnScreen(directory + 'pickaxeh.png', region=locatePickaxeh3)
+				location.left
+			except:
+				break
 		except:
 			if (futureTime < time.time()):
 				pass
+
+	try:
+		location = py.locateOnScreen(directory + 'pickaxeh.png', region=locatePickaxeh3)
+		location.left
+		py.press('e')
+	except:
+		pass
 
 def attack(keyPress, coords = [0.0, 0.0, 0.0]):
 	previousPosition = [0.0, 0.0, 0.0]
@@ -2455,7 +2498,7 @@ main()
 #getVisual(True)
 #getHealth(display = True)
 #calculateSpeed(movementStatus = 1, display = True)
-#repair([False, False, False, False], "", deposit = True)
+#repair([False, False, False, False], "", [False],deposit = True)
 #print(enemyHealth())
 #print(checkStream())
 #print(checkModerators([False, False, False, False], ""))

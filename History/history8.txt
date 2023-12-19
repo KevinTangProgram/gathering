@@ -1,0 +1,57 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Fri Dec 15 01:09:21 2023
+Naraka00 no longer being tracked at Fri Dec 15 01:16:16 2023
+Cal_and_Ben no longer being tracked at Fri Dec 15 01:28:01 2023
+Program resumed on Fri Dec 15 01:28:34 2023
+
+Recess taken on Fri Dec 15 01:35:47 2023
+Resumed work on Fri Dec 15 01:37:56 2023
+
+Cal_and_Ben went offline at Fri Dec 15 02:02:42 2023
+Cal_and_Ben no longer being tracked at Fri Dec 15 02:32:43 2023
+Program resumed on Fri Dec 15 02:33:16 2023
+
+ at Fri Dec 15 02:35:08 2023
+Program resumed on Fri Dec 15 02:35:43 2023
+
+
+Kicked to lobby.
+Mission Aborted on Fri Dec 15 02:35:43 2023
+Program resumed on Fri Dec 15 02:36:00 2023
+Recess taken on Fri Dec 15 02:47:34 2023
+Resumed work on Fri Dec 15 02:49:43 2023
+
+ at Fri Dec 15 03:05:43 2023
+Program resumed on Fri Dec 15 03:06:17 2023
+
+
+Kicked to lobby.
+Mission Aborted on Fri Dec 15 03:06:18 2023
+Program resumed on Fri Dec 15 03:06:35 2023
+Error with mod call at Fri Dec 15 03:25:12 2023
+Recess taken on Fri Dec 15 03:28:55 2023
+Resumed work on Fri Dec 15 03:31:09 2023
+
+ at Fri Dec 15 03:48:39 2023
+Program resumed on Fri Dec 15 03:49:14 2023
+
+
+Kicked to lobby.
+Mission Aborted on Fri Dec 15 03:49:14 2023
+Program resumed on Fri Dec 15 03:49:31 2023
+Error with mod call at Fri Dec 15 03:49:56 2023
+Recess taken on Fri Dec 15 04:10:59 2023
+
+Failed to receive position coordinates on Fri Dec 15 04:12:01 2023. Press enter to resume the program.
+Mission Aborted
+
+C:\Users\chesh\professions>
