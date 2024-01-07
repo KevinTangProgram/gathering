@@ -46,6 +46,7 @@ streamAndSpeed = (780, 25, 470, 70)
 healthScreenshot = (700, 896, 250, 16)
 durabilityScreenshot = (150, 925, 20, 20)
 eHealthScreenshot = (775, 60, 370, 60)		#unsure
+horseScreenshot = (0, 944, 700, 16)
 
 #server and lobby
 locateHeart = (775, 950, 25, 25)
@@ -826,6 +827,12 @@ def server(keyPress):
 			#time.sleep(5)
 			confirm = py.locateOnScreen(directory + 'craftingTable.png', region=locateTable)
 			confirm.left
+			py.click()
+			time.sleep(1)
+			py.press('e')
+			time.sleep(1)
+			py.press('f3')
+			time.sleep(10)
 			startMove(movementArray = movementStatus, keyPress = keyPress)
 			abort(True, keyPress = keyPress)
 			return
@@ -856,6 +863,12 @@ def server(keyPress):
 						verify.left
 						break
 					except:
+						try:
+							verify = py.locateOnScreen(directory + 'error.png')
+							verify.left
+							abort(False, keyPress)
+						except:
+							pass
 						py.moveTo(960, 575)
 						time.sleep(0.5)
 						py.click()
@@ -1075,8 +1088,14 @@ def randomRotation(keyPress):
 def getInitialModList():
 	modTimeOut = []
 	dangerString = ""
-
-	responseObject = json.loads(requests.get("https://wynncraft-kf68.onrender.com/moderators").text)
+	responseObject = {}
+	while True:
+		try:
+			responseObject = json.loads(requests.get("https://wynncraft-kf68.onrender.com/moderators").text)
+			break
+		except:
+			time.sleep(10)
+			
 	if (len(responseObject) == 0):
 		print("Error with mod call at " + time.ctime())
 	for i in responseObject:
@@ -1252,7 +1271,6 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 					time.sleep(30)
 					startMove(movementArray = movementStatus, keyPress = keyPress)
 					server(keyPress)
-					py.press('f3')
 					return getPosition(keyPress = keyPress)
 			else:
 				pass
@@ -1322,7 +1340,6 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 					time.sleep(30)
 					startMove(movementArray = movementStatus, keyPress = keyPress)
 					server(keyPress)
-					py.press('f3')
 					return getDirection(keyPress = keyPress)
 			else:
 				pass
@@ -1620,7 +1637,12 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 	response = {}
 	shiftStatus = False
 	if (not blindCheck):
-		response = requests.post("https://wynncraft-kf68.onrender.com/check", json={"previous": dangerString})
+		while (True):
+			try:
+				response = requests.post("https://wynncraft-kf68.onrender.com/check", json={"previous": dangerString})
+				break
+			except:
+				time.sleep(10)
 	else:
 		response = requests.get("https://wynncraft-kf68.onrender.com/blindcheck")
 	if (len(response.text) != 2 or len(initialTimeOut) > 0): #and len(response.text) != 3):
@@ -1676,15 +1698,18 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 						py.click()
 						time.sleep(30)
 						server(keyPress)
-						py.press('f3')
 						returnData = getInitialModList()
 						dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
 					#teleport(keyPress)
 					#abort(False, keyPress = keyPress)
 				elif (" went offline" in response.text):
 					modOfInterest = response.text[1: response.text.index(" went offline")]
-					modList.append(modOfInterest)
-					timeOut.append(time.time() + 1800)
+					if (modOfInterest not in modList):
+						modList.append(modOfInterest)
+						timeOut.append(time.time() + 1800)
+					else:
+						timeOut[modList.index(modOfInterest)] = time.time() + 1800
+					
 					dangerString = dangerString.replace('|' + modOfInterest + '|', "")
 
 					stopMove(keyPress)
@@ -1712,7 +1737,6 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 					except:
 						time.sleep(60)
 						server(keyPress)
-						py.press('f3')
 					returnData = getInitialModList()
 					dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
 				else:
@@ -1726,7 +1750,13 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 						print(dangerString)
 						dangerString = getInitialModList()[0]
 				while (True):
-					response = requests.post("https://wynncraft-kf68.onrender.com/check", json={"previous": dangerString})
+					while (True):
+						try:
+							response = requests.post("https://wynncraft-kf68.onrender.com/check", json={"previous": dangerString})
+							break
+						except:
+							time.sleep(10)
+
 					if (len(response.text) > 1 and response.text[1] == '|' or len(response.text) == 2):
 						dangerString = response.text[1: -1]
 						loopIndex = 0
@@ -1746,8 +1776,11 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 						print(response.text.replace("\"", "") + " at " + time.ctime(time.time()))
 						if (" went offline" in response.text):
 							modOfInterest = response.text[1: response.text.index(" went offline")]
-							modList.append(modOfInterest)
-							timeOut.append(time.time() + 1800)
+							if (modOfInterest not in modList):
+								modList.append(modOfInterest)
+								timeOut.append(time.time() + 1800)
+							else:
+								timeOut[modList.index(modOfInterest)] = time.time() + 1800
 							dangerString = dangerString.replace('|' + modOfInterest + '|', "")
 						elif (" detected in world " in response.text):
 							if (firstStrike[0]):
@@ -1776,7 +1809,6 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 								py.click()
 								time.sleep(30)
 								server(keyPress)
-								py.press('f3')
 								returnData = getInitialModList()
 								dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
 						elif ("User not found" in response.text):
@@ -1791,7 +1823,6 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 							except:
 								time.sleep(60)
 								server(keyPress)
-								py.press('f3')
 							returnData = getInitialModList()
 							dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)
 						else:
@@ -1860,6 +1891,23 @@ def mountHorse(keyPress):
 		if (((checkHeight > 0.84) and (checkHeight <= 0.85)) or ((checkHeight > 0.51) and (checkHeight <= 0.52))):
 			break
 		elif (finishTime < time.time()):
+			screenshot = py.screenshot(region=horseScreenshot)
+			screenshot.save(directory + 'unprocessedhorse.png')
+
+			coords = mpimg.imread(directory + 'unprocessedHorse.png')
+			mpimg.imsave(directory + "processedHorse.png", imageProcessor(coords, dura = True))
+			img_rgb = cv2.imread(directory + 'processedHorse.png')
+			dictionary = numberProcessor(img_rgb)
+
+			img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
+			template = cv2.imread(directory + 'horse.png', 0)
+			res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
+			threshold = 0.9999
+			loc = np.where(res >= threshold)
+			lists = loc[1].tolist()
+			if (len(lists) > 0):
+				break
+
 			py.press('/')
 			time.sleep(0.5)
 			py.write('class')
@@ -2147,6 +2195,8 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 		teleport(keyPress)
 		print("Recess taken on", time.ctime(time.time()))
 	py.press('9')
+	returnData = getInitialModList()
+	dangerString = checkModerators(keyPress, returnData[0], firstStrike, initialTimeOut=returnData[1])
 	for i in range(len(gps)):
 		checkpoint = gps[i].coordinates
 		if (checkpoint[1] == -1):
@@ -2236,8 +2286,14 @@ def repair(keyPress, dangerString, firstStrike, deposit = True):
 
 			if (gps[i].interact == 1):
 				fixTool(checkpoint, keyPress)
+				returnData = getInitialModList()
+				dangerString = checkModerators(keyPress, returnData[0], firstStrike, initialTimeOut=returnData[1])
 			elif (gps[i].interact == 2):
 				depositInBank(checkpoint, keyPress)
+				returnData = getInitialModList()
+				dangerString = checkModerators(keyPress, returnData[0], firstStrike, initialTimeOut=returnData[1])
+	returnData = getInitialModList()
+	dangerString = checkModerators(keyPress, returnData[0], firstStrike, initialTimeOut=returnData[1])
 	print("Resumed work on", time.ctime(time.time()), "\n")
 	return dangerString
 
