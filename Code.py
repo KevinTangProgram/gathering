@@ -1095,9 +1095,11 @@ def getInitialModList():
 			break
 		except:
 			time.sleep(10)
-			
+
+	potentialCall = False		
 	if (len(responseObject) == 0):
 		print("Error with mod call at " + time.ctime())
+		potentialCall = True
 	for i in responseObject:
 		if (i[1] > 0): # and i[0] != "Salted"): #
 			if (i[1] > 29 and i[1] < 100):
@@ -1107,34 +1109,44 @@ def getInitialModList():
 					i[1] -= 100
 					print(i[0] +  " vanished at " + time.ctime())
 				modTimeOut.append([i[0], i[1]])
+				
+	if (len(responseObject) == 0):
+		try:
+			responseObject = json.loads(requests.get("https://wynncraft-kf68.onrender.com/bypass").text)
+		except:
+			responseObject = {}
+			print("Bypass unsuccessful")
 
-	responseObject = json.loads(requests.get("https://weak-lime-drill-fez.cyclic.app/get/friends").text)
-	utcTime = time.gmtime(responseObject[len(responseObject) - 1]["update"])
-	utcMinutes = utcTime.tm_hour * 60 + utcTime.tm_min + 1
-	if (utcMinutes < 30):
-		responseObject = json.loads(requests.get("https://weak-lime-drill-fez.cyclic.app/get/all").text)
-		utcMinutes += 41760
+		if (len(responseObject) > 0):
+			utcTime = time.gmtime(responseObject[len(responseObject) - 1]["update"])
+			utcMinutes = utcTime.tm_hour * 60 + utcTime.tm_min + 1
+			if (utcMinutes < 30 and potentialCall):
+				try:
+					responseObject = json.loads(requests.get("https://wynncraft-kf68.onrender.com/largebypass").text)
+				except:
+					responseObject = {}
+				utcMinutes += 41760
+				for i in responseObject:
+					try:
+						i["today"] = i["month"] + i["today"]
+					except:
+						pass
+	
 		for i in responseObject:
 			try:
-				i["today"] = i["month"] + i["today"]
+				timeStampString = stringToBool(i["today"])[utcMinutes - 30:utcMinutes]
+				if ('1' in timeStampString and (i["user"] != "azarashiouo" and i["user"] != "Awesome_AA_" and i["user"] != "Awesome_AA" and i["user"] != "Zyreon")):
+					if (('|' + i["user"] + '|' not in dangerString) and (i["user"] != "Salted")):
+						for j in modTimeOut:
+							if (j[0] == i["user"]):
+								break
+						else:
+							if (timeStampString.rindex('1') == 29):
+								dangerString += ('|' + i["user"] + '|')
+							else:
+								modTimeOut.append([i["user"], timeStampString.rindex('1') + 1])
 			except:
 				pass
-	
-	for i in responseObject:
-		try:
-			timeStampString = stringToBool(i["today"])[utcMinutes - 30:utcMinutes]
-			if ('1' in timeStampString and (i["user"] != "azarashiouo" and i["user"] != "Awesome_AA_" and i["user"] != "Awesome_AA" and i["user"] != "Zyreon")):
-				if (('|' + i["user"] + '|' not in dangerString) and (i["user"] != "Salted")):
-					for j in modTimeOut:
-						if (j[0] == i["user"]):
-							break
-					else:
-						if (timeStampString.rindex('1') == 29):
-							dangerString += ('|' + i["user"] + '|')
-						else:
-							modTimeOut.append([i["user"], timeStampString.rindex('1') + 1])
-		except:
-			pass
 	return [dangerString, modTimeOut]
 
 def farm(previousHealth, durability, speedBomb, speedClock, left = True, delay = 7.0, autoClicker = False, keyPress = [False, False, False, False], dangerString = "", firstStrike = [False]):
@@ -1255,6 +1267,8 @@ def getPosition(display=False, keyPress = [False, False, False, False], iteratio
 			try:
 				check = py.locateOnScreen(directory + 'header.png', region=headerLogo)
 				check.left
+				py.click()
+				time.sleep(1)
 				py.press('esc')
 				time.sleep(1)
 				return getPosition(keyPress = keyPress)
@@ -1324,6 +1338,8 @@ def getDirection(display=False, keyPress = [False, False, False, False], iterati
 			try:
 				check = py.locateOnScreen(directory + 'header.png', region=headerLogo)
 				check.left
+				py.click()
+				time.sleep(1)
 				py.press('esc')
 				time.sleep(1)
 				return getDirection(keyPress = keyPress)
@@ -1832,6 +1848,7 @@ def checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=[], onHo
 								print(dangerString)
 								returnData = getInitialModList()
 								dangerString = checkModerators(keyPress, returnData[0], firstStrike, returnData[1], originalCall = False)			
+					py.press('m')
 					time.sleep(5)
 
 				py.press('m')

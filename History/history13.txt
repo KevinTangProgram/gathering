@@ -1,0 +1,174 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Tue Jan  9 21:15:05 2024
+Salted vanished at Tue Jan  9 21:15:09 2024
+Salted went offline at Tue Jan  9 21:15:20 2024
+Salted went offline at Tue Jan  9 21:15:25 2024
+Salted went offline at Tue Jan  9 21:15:31 2024
+Salted went offline at Tue Jan  9 21:15:37 2024
+Salted went offline at Tue Jan  9 21:15:43 2024
+Salted went offline at Tue Jan  9 21:15:49 2024
+Salted went offline at Tue Jan  9 21:15:54 2024
+Salted went offline at Tue Jan  9 21:16:00 2024
+Salted went offline at Tue Jan  9 21:16:06 2024
+Salted went offline at Tue Jan  9 21:16:12 2024
+Salted went offline at Tue Jan  9 21:16:18 2024
+Salted went offline at Tue Jan  9 21:16:24 2024
+Salted went offline at Tue Jan  9 21:16:30 2024
+Salted went offline at Tue Jan  9 21:16:35 2024
+Salted went offline at Tue Jan  9 21:16:41 2024
+Salted went offline at Tue Jan  9 21:16:47 2024
+Salted went offline at Tue Jan  9 21:16:53 2024
+Salted went offline at Tue Jan  9 21:16:59 2024
+Salted went offline at Tue Jan  9 21:17:04 2024
+Salted went offline at Tue Jan  9 21:17:10 2024
+Salted went offline at Tue Jan  9 21:17:16 2024
+Salted went offline at Tue Jan  9 21:17:23 2024
+Salted went offline at Tue Jan  9 21:17:31 2024
+Salted went offline at Tue Jan  9 21:17:37 2024
+Salted went offline at Tue Jan  9 21:17:43 2024
+Salted went offline at Tue Jan  9 21:17:49 2024
+Salted went offline at Tue Jan  9 21:17:55 2024
+Salted went offline at Tue Jan  9 21:18:01 2024
+Salted went offline at Tue Jan  9 21:18:06 2024
+Salted went offline at Tue Jan  9 21:18:12 2024
+Salted went offline at Tue Jan  9 21:18:18 2024
+Salted went offline at Tue Jan  9 21:18:24 2024
+Salted went offline at Tue Jan  9 21:18:30 2024
+Salted went offline at Tue Jan  9 21:18:36 2024
+Salted went offline at Tue Jan  9 21:18:41 2024
+Salted went offline at Tue Jan  9 21:18:47 2024
+Salted went offline at Tue Jan  9 21:18:53 2024
+Salted went offline at Tue Jan  9 21:18:59 2024
+Salted went offline at Tue Jan  9 21:19:05 2024
+Salted went offline at Tue Jan  9 21:19:10 2024
+Salted went offline at Tue Jan  9 21:19:16 2024
+Salted went offline at Tue Jan  9 21:19:22 2024
+Salted went offline at Tue Jan  9 21:19:28 2024
+Salted went offline at Tue Jan  9 21:19:34 2024
+Salted went offline at Tue Jan  9 21:19:40 2024
+Salted went offline at Tue Jan  9 21:19:48 2024
+Salted went offline at Tue Jan  9 21:19:55 2024
+Salted went offline at Tue Jan  9 21:20:00 2024
+Salted went offline at Tue Jan  9 21:20:06 2024
+Salted went offline at Tue Jan  9 21:20:12 2024
+Salted went offline at Tue Jan  9 21:20:18 2024
+Salted went offline at Tue Jan  9 21:20:23 2024
+Salted went offline at Tue Jan  9 21:20:29 2024
+Salted went offline at Tue Jan  9 21:20:35 2024
+Salted went offline at Tue Jan  9 21:20:41 2024
+Salted went offline at Tue Jan  9 21:20:47 2024
+Salted went offline at Tue Jan  9 21:20:52 2024
+Salted went offline at Tue Jan  9 21:20:58 2024
+Salted went offline at Tue Jan  9 21:21:04 2024
+Salted went offline at Tue Jan  9 21:21:10 2024
+Salted went offline at Tue Jan  9 21:21:16 2024
+Salted went offline at Tue Jan  9 21:21:22 2024
+Salted went offline at Tue Jan  9 21:21:27 2024
+Salted went offline at Tue Jan  9 21:21:33 2024
+Salted went offline at Tue Jan  9 21:21:39 2024
+Salted went offline at Tue Jan  9 21:21:44 2024
+Salted went offline at Tue Jan  9 21:21:50 2024
+Salted went offline at Tue Jan  9 21:21:56 2024
+Salted went offline at Tue Jan  9 21:22:02 2024
+Salted went offline at Tue Jan  9 21:22:08 2024
+Salted went offline at Tue Jan  9 21:22:15 2024
+Salted went offline at Tue Jan  9 21:22:22 2024
+Salted went offline at Tue Jan  9 21:22:28 2024
+Salted went offline at Tue Jan  9 21:22:34 2024
+Salted went offline at Tue Jan  9 21:22:40 2024
+Salted went offline at Tue Jan  9 21:22:46 2024
+Salted went offline at Tue Jan  9 21:22:52 2024
+Salted went offline at Tue Jan  9 21:22:57 2024
+Salted went offline at Tue Jan  9 21:23:03 2024
+Salted went offline at Tue Jan  9 21:23:09 2024
+Salted went offline at Tue Jan  9 21:23:15 2024
+Salted went offline at Tue Jan  9 21:23:21 2024
+Salted went offline at Tue Jan  9 21:23:27 2024
+Salted went offline at Tue Jan  9 21:23:32 2024
+Salted went offline at Tue Jan  9 21:23:38 2024
+Salted went offline at Tue Jan  9 21:23:44 2024
+Salted went offline at Tue Jan  9 21:23:50 2024
+Salted went offline at Tue Jan  9 21:23:56 2024
+Salted went offline at Tue Jan  9 21:24:02 2024
+Salted went offline at Tue Jan  9 21:24:07 2024
+Salted went offline at Tue Jan  9 21:24:13 2024
+Salted went offline at Tue Jan  9 21:24:19 2024
+Salted went offline at Tue Jan  9 21:24:25 2024
+Salted went offline at Tue Jan  9 21:24:31 2024
+Salted went offline at Tue Jan  9 21:24:37 2024
+Salted went offline at Tue Jan  9 21:24:43 2024
+Salted went offline at Tue Jan  9 21:24:48 2024
+Salted went offline at Tue Jan  9 21:24:54 2024
+Salted went offline at Tue Jan  9 21:25:00 2024
+Salted went offline at Tue Jan  9 21:25:06 2024
+Salted went offline at Tue Jan  9 21:25:12 2024
+Salted went offline at Tue Jan  9 21:25:17 2024
+Salted went offline at Tue Jan  9 21:25:23 2024
+Salted went offline at Tue Jan  9 21:25:30 2024
+Salted went offline at Tue Jan  9 21:25:35 2024
+Salted went offline at Tue Jan  9 21:25:42 2024
+Salted went offline at Tue Jan  9 21:25:48 2024
+Salted went offline at Tue Jan  9 21:25:53 2024
+Salted went offline at Tue Jan  9 21:25:59 2024
+Salted went offline at Tue Jan  9 21:26:05 2024
+Salted went offline at Tue Jan  9 21:26:11 2024
+Salted went offline at Tue Jan  9 21:26:17 2024
+Salted went offline at Tue Jan  9 21:26:23 2024
+Salted went offline at Tue Jan  9 21:26:29 2024
+Salted went offline at Tue Jan  9 21:26:34 2024
+Salted went offline at Tue Jan  9 21:26:40 2024
+Salted went offline at Tue Jan  9 21:26:46 2024
+Salted went offline at Tue Jan  9 21:26:53 2024
+Salted went offline at Tue Jan  9 21:26:59 2024
+Salted went offline at Tue Jan  9 21:27:04 2024
+Salted went offline at Tue Jan  9 21:27:10 2024
+Salted went offline at Tue Jan  9 21:27:18 2024
+Salted went offline at Tue Jan  9 21:27:24 2024
+Salted went offline at Tue Jan  9 21:27:30 2024
+Salted went offline at Tue Jan  9 21:27:35 2024
+Salted went offline at Tue Jan  9 21:27:41 2024
+Salted went offline at Tue Jan  9 21:27:47 2024
+Salted went offline at Tue Jan  9 21:27:53 2024
+Salted went offline at Tue Jan  9 21:27:58 2024
+Salted went offline at Tue Jan  9 21:28:04 2024
+Salted went offline at Tue Jan  9 21:28:10 2024
+Salted went offline at Tue Jan  9 21:28:16 2024
+Salted no longer being tracked at Tue Jan  9 21:58:18 2024
+Program resumed on Tue Jan  9 21:58:50 2024
+
+Resumed work on Tue Jan  9 22:01:39 2024
+
+Error in code found at Tue Jan  9 22:11:45 2024
+Program resumed on Tue Jan  9 22:12:19 2024
+
+
+Kicked to lobby.
+Mission Aborted on Tue Jan  9 22:12:19 2024
+Program resumed on Tue Jan  9 22:12:36 2024
+Recess taken on Tue Jan  9 22:36:06 2024
+Resumed work on Tue Jan  9 22:38:37 2024
+
+SixL__ went offline at Tue Jan  9 22:40:48 2024
+SixL__ no longer being tracked at Tue Jan  9 23:10:51 2024
+Program resumed on Tue Jan  9 23:11:23 2024
+
+Health dropped from 23630.0 to 56.0 at Tue Jan  9 23:11:33 2024
+
+Mission Aborted on Tue Jan  9 23:11:33 2024
+Program resumed on Tue Jan  9 23:11:51 2024
+Node out of range.
+Last recoreded position:  [98.5, 41.0, -2215.5]
+Failed to reach:  [483.5, 91.5, -536.5]
+
+Mission Aborted on Tue Jan  9 23:12:31 2024
+
+C:\Users\chesh\professions>m

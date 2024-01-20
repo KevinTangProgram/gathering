@@ -1,0 +1,109 @@
+Wynncraft's Automated Resource Collector
+
+Authentication Successful
+
+Before starting, check that:
+1. Coordinates are visible.
+2. Code is set to the correct configurations.
+3. Gathering XP armor is equipped.
+
+Press enter to begin the program.
+Program started on Mon Jan  8 21:31:40 2024
+Cal_and_Ben went offline at Mon Jan  8 21:40:07 2024
+HeyZeer0 no longer being tracked at Mon Jan  8 21:45:17 2024
+Ichikaaa no longer being tracked at Mon Jan  8 21:52:13 2024
+Error in code found at Mon Jan  8 22:01:10 2024
+Cal_and_Ben no longer being tracked at Mon Jan  8 22:10:09 2024
+Program resumed on Mon Jan  8 22:10:42 2024
+
+Resumed work on Mon Jan  8 22:12:36 2024
+
+Error with mod call at Mon Jan  8 22:27:01 2024
+Error in code found at Mon Jan  8 22:36:59 2024
+Program resumed on Mon Jan  8 22:37:34 2024
+
+
+Kicked to lobby.
+Mission Aborted on Mon Jan  8 22:37:34 2024
+Program resumed on Mon Jan  8 22:37:51 2024
+Recess taken on Mon Jan  8 22:47:01 2024
+Resumed work on Mon Jan  8 22:49:34 2024
+
+SixL__ detected in world 27 at Mon Jan  8 22:56:35 2024
+
+Kicked out of server
+Mission Aborted on Mon Jan  8 23:28:38 2024
+Program resumed on Mon Jan  8 23:28:55 2024
+Program resumed on Mon Jan  8 23:30:46 2024
+
+SixL__ went offline at Mon Jan  8 23:36:48 2024
+PraetorianWolf went offline at Mon Jan  8 23:40:19 2024
+SixL__ no longer being tracked at Tue Jan  9 00:06:48 2024
+PraetorianWolf no longer being tracked at Tue Jan  9 00:10:24 2024
+Traceback (most recent call last):
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 1096, in _validate_conn
+    conn.connect()
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 782, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\ssl_.py", line 470, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\ssl_.py", line 514, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='weak-lime-drill-fez.cyclic.app', port=443): Max retries exceeded with url: /get/friends (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:997)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chesh\professions\code.py", line 2549, in <module>
+    main()
+  File "C:\Users\chesh\professions\code.py", line 2521, in main
+    healthDanger = farm(previousHealth, durability, speedBomb, speedClock, leftClick, farmTime + pointOfInterest[i].delay, pointOfInterest[i].rapidClick, keyPress = keyPress, dangerString = dangerString, firstStrike = firstStrike)
+  File "C:\Users\chesh\professions\code.py", line 1179, in farm
+    dangerString = checkModerators(keyPress, dangerString, firstStrike, initialTimeOut=lagTime)
+  File "C:\Users\chesh\professions\code.py", line 1839, in checkModerators
+    returnData = getInitialModList()
+  File "C:\Users\chesh\professions\code.py", line 1111, in getInitialModList
+    responseObject = json.loads(requests.get("https://weak-lime-drill-fez.cyclic.app/get/friends").text)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\chesh\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='weak-lime-drill-fez.cyclic.app', port=443): Max retries exceeded with url: /get/friends (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:997)')))
+
+C:\Users\chesh\professions>
